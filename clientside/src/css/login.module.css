@@ -1,0 +1,144 @@
+.body {
+  display: flex;
+  height: 93vh;
+  justify-content: space-between;
+  padding: 30px;
+  box-sizing: border-box;
+}
+.firstDiv {
+  width: 40vw;
+  position: relative;
+}
+.firstDivMain {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50%;
+  justify-content: space-between;
+}
+.logo {
+  margin-top: 10px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  border: none;
+}
+.form input {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+.form input:last-of-type {
+  margin-bottom: 40px;
+}
+.signUpText {
+  display: none;
+}
+.signUpSpan {
+  font-style: italic;
+  color: blue;
+}
+.firstFormButton {
+  color: white;
+  background-color: black;
+  padding: 15px 10px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+.secondFormButton {
+  color: black;
+  background-color: white;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+.secondFormButton:hover {
+  background-color: #d1f090;
+}
+.secondForm input:last-of-type {
+  margin-bottom: 40px;
+}
+.formHeader {
+  width: 60%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.formHeader h2 {
+  margin-bottom: 0px;
+  color: #d1f090;
+}
+.formHeader p {
+  margin-bottom: 0;
+  margin-top: 10px;
+  font-size: smaller;
+}
+.secondDiv {
+  background-image: url("../images/logindesktopImage.jpg");
+  position: relative;
+  width: 55vw;
+  height: inherit;
+  border-radius: 15px;
+}
+/* .secondDiv img {
+  border-radius: 15px;
+  width: inherit;
+  height: inherit;
+} */
+.secondDiv button {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  color: black;
+  background-color: white;
+  padding: 10px;
+  width: 100px;
+  border-radius: 20px;
+}
+
+.reduceHeight {
+  height: 50%;
+}
+.firstDiv a {
+  text-decoration: none;
+  color: black;
+}
+@media (max-width: 912px) {
+  .secondDiv {
+    background-image: url("../images/logintabletimage.jpg");
+  }
+  .firstDivMain {
+    margin-top: 0;
+    height: auto;
+  }
+  .formHeader,
+  .form {
+    width: 80%;
+  }
+}
+@media (max-width: 540px) {
+  .secondDiv {
+    display: none;
+  }
+  .firstDiv {
+    width: 80vw;
+    margin: 0 auto;
+  }
+  .formHeader,
+  .form {
+    width: 100%;
+  }
+  .form input:last-of-type {
+    margin-bottom: 10px;
+  }
+  .signUpText {
+    font-weight: bold;
+    display: block;
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
+}

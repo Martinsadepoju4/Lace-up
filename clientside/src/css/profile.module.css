@@ -1,0 +1,36 @@
+.main {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  margin-left: 15%;
+  margin-bottom: 50px;
+}
+.persornalInfo {
+  width: 60%;
+}
+.button {
+  width: 25%;
+  margin-top: 50px;
+  position: sticky;
+  top: 15vh;
+}
+@media (max-width: 540px) {
+  .main {
+    width: 80%;
+    margin: auto;
+    flex-direction: column;
+  }
+  .button {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  .persornalInfo {
+    width: 100%;
+  }
+}
+@media (max-width: 420px) {
+  .main {
+    width: 90%;
+    font-size: small;
+  }
+}

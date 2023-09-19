@@ -1,0 +1,13 @@
+:global .checkoutButton {
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+      align-items: center;
+      background-color: #a1d040;
+      justify-content: center;
+      height: 50px;
+      font-weight: bold;
+  }
+  .icon{
+    margin-left: 10px;
+  }

@@ -1,0 +1,31 @@
+.miniNav {
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  font-size: medium;
+}
+.listItemWithoutPreSlash {
+  margin-right: 6px;
+}
+.listItemWithPreSlash {
+  display: flex;
+  align-items: center;
+  margin-right: 6px;
+}
+.listItemWithPreSlash :first-child {
+  margin-right: 6px;
+  font-weight: bold;
+}
+
+.listItemWithPreSlash a,
+.listItemWithoutPreSlash a {
+  color: black;
+}
+.title {
+  text-transform: capitalize;
+}
+@media (max-width: 920px) {
+  .miniNav {
+    font-size: smaller;
+  }
+}

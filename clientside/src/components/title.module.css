@@ -1,0 +1,57 @@
+.container {
+  background-color: black;
+  padding: 10px 0;
+}
+.containerTwo {
+  margin: auto;
+  width: 60vw;
+  color: #ffff;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.containerTwo h4 {
+  text-align: center;
+  position: relative;
+}
+.containerTwo h1 {
+  font-size: 2rem;
+  margin: 0 10px;
+}
+.containerTwo h1::after {
+  content: " ";
+  display: inline-block;
+  background-color: #ffff;
+  height: 1.5em;
+  width: 2px;
+  opacity: 0.8;
+  margin: 0 0 -17px 20px;
+  animation: blink 1s 3;
+}
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.typingEffect {
+  display: inline;
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.h4 {
+  margin: 10px;
+  font-size: smaller;
+}
+@media (max-width: 540px) {
+  .containerTwo h1 {
+    font-size: 2em;
+  }
+}

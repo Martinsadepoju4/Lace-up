@@ -1,0 +1,112 @@
+.holderDiv {
+  background-color: #f9f9f9;
+  width: 85vw;
+  margin: auto;
+  padding-bottom: 50px;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  box-sizing: border-box;
+}
+
+.holderDiv > :nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 50px;
+}
+.holderDiv > :nth-child(1) a {
+  color: black;
+}
+
+.secondHolder {
+  overflow-x: scroll;
+  display: flex;
+  justify-content: space-between;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  width: 100%;
+  height: 27vw;
+  overflow-y: hidden;
+}
+
+.category {
+  overflow-x: hidden;
+}
+.secondHolder::-webkit-scrollbar {
+  width: 30px;
+}
+.secondHolder::-webkit-scrollbar-thumb {
+  background-color: #a1d040;
+
+  border-radius: 5px;
+}
+
+.secondHolder::-webkit-scrollbar-track {
+  background-color: lightgrey;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 5px 0;
+}
+.category * p {
+  font-size: small;
+}
+
+.others * p {
+  font-size: small;
+  /* width: 100%; */
+}
+
+@media (max-width: 1280px) {
+  .holderDiv {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media (max-width: 1024px) {
+}
+@media (max-width: 912px) {
+  .holderDiv {
+    width: 85vw;
+  }
+  /* .category :first-child > :first-child * {
+    width: 25vw;
+    height: 28vw;
+  } */
+}
+@media (max-width: 820px) {
+  .holderDiv {
+    width: 90vw;
+  }
+  .secondHolder {
+    height: 35vw !important;
+  }
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 540px) {
+  .holderDiv {
+    width: 95vw;
+  }
+  .category {
+    overflow-y: hidden;
+  }
+  .secondHolder {
+    /* height: inherit !important; */
+    margin-right: 0;
+  }
+  .sex_image {
+    height: 86.5%;
+    width: inherit;
+  }
+  .brandset_name {
+    font-size: x-small !important;
+  }
+  /* .category {
+    overflow-y: hidden;
+  } */
+  .others {
+    height: 85vw !important;
+  }
+}
+@media (max-width: 450px) {
+}

@@ -1,0 +1,129 @@
+@keyframes slideIn {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 0 0; /* Slide the image to its final position */
+  }
+}
+.head {
+  color: #f4f4f4;
+  padding-bottom: 50px;
+  height: 95vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-image: url("https://wallpaperaccess.com/full/1076768.jpg");
+  background-size: cover;
+}
+.slide-animation {
+  animation: slideIn 3s forwards; /* Adjust animation duration as needed */
+}
+
+.headerBox {
+  text-align: center;
+  margin: auto;
+  margin-top: 50px;
+  width: 60vw;
+  border: 3px solid #f3f3f4;
+}
+.headerBox h1 {
+  font-size: 3rem;
+  line-height: 1.5;
+  margin: 3rem auto 2rem auto;
+  width: 100%;
+}
+.headerBox button {
+  background-color: #a1d040;
+  color: #fff;
+}
+.headerBox button:hover {
+  background-color: #fff;
+  color: black;
+}
+.circles {
+  display: flex;
+  margin: 7rem 0 1rem 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  margin: 0 10px;
+  border-radius: 50%;
+  background-color: #f4f4f4;
+}
+
+.active {
+  width: 20px;
+  height: 20px;
+  transition: width 1s, height 1s;
+}
+
+li {
+  list-style: none;
+}
+
+.firstImg {
+  background-image: url("https://wallpaperaccess.com/full/1076768.jpg");
+}
+
+.secondImg {
+  background-image: url("https://wallpaperaccess.com/full/1076763.jpg");
+}
+
+.thirdImg {
+  background-image: url("https://wallpaperaccess.com/full/680073.jpg");
+}
+
+@media (max-width: 1280px) {
+}
+@media (max-width: 1024px) {
+  .circles {
+    margin: 5rem 0 1rem 0;
+  }
+}
+@media (max-width: 912px) {
+  .head {
+    height: 70vw;
+  }
+  .circles {
+    margin: 3rem 0 1rem 0;
+  }
+}
+@media (max-width: 820px) {
+  .head {
+    height: 80vw;
+  }
+  .headerBox {
+    padding: 0 2rem;
+  }
+}
+@media (max-width: 710px) {
+  .head {
+    height: 90vh;
+  }
+}
+@media (max-width: 700px) {
+  .headerBox {
+    height: 80%;
+  }
+}
+@media (max-width: 540px) {
+  .head {
+    height: 80vh;
+  }
+  .headerBox {
+    border: none;
+    width: auto;
+  }
+  .headerBox h1 {
+    margin: 1rem 0 3rem 0;
+  }
+  .circles {
+    margin: 4rem 0 1rem 0;
+  }
+}
+@media (max-width: 414px) {
+}

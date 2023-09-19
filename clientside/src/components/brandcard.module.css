@@ -1,0 +1,63 @@
+.brandcard {
+  height: 135px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #eaeaea;
+  box-sizing: border-box;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border ease-in-out 0.5s;
+}
+.brandcard:hover {
+  border: 1px solid black;
+}
+.brandcard img {
+  width: 35%;
+  height: 70%;
+  border-radius: 50%;
+  transition: scale ease-in-out 0.3s;
+}
+.brandcard img:hover {
+  scale: 1.1;
+}
+.text {
+  width: 60%;
+  font-size: small;
+}
+@media (max-width: 1024px) {
+  .brandcard {
+    height: 120px;
+  }
+}
+@media (max-width: 912px) {
+  .brandcard {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 450px) {
+  .brandcard {
+    height: 100px;
+  }
+  .text {
+    font-size: smaller;
+  }
+}
+@media (max-width: 300px) {
+  .brandcard {
+    height: 150px;
+    flex-direction: column;
+  }
+  .brandcard img {
+    width: 50%;
+  }
+  .text {
+    width: 100%;
+    text-align: center;
+  }
+  .text h3 {
+    margin-bottom: 0;
+  }
+}

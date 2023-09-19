@@ -1,0 +1,36 @@
+:global .container {
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: small;
+  margin: 50px auto 30px auto;
+  text-transform: uppercase;
+}
+.subContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+.shoeInfo {
+  display: flex;
+  padding-left: 0px;
+  margin: 0;
+}
+.image {
+  width: 70px;
+  height: 70px;
+  margin-right: 30px;
+}
+.info {
+  font-size: small;
+}
+.info h3,
+.info p {
+  margin: 0;
+}
+.info p {
+  margin-top: 5px;
+}
