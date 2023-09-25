@@ -7,6 +7,7 @@ const cors = require("cors");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
+const PASSPORT_SECRET_KEY = process.env['PASSPORT_SECRET_KEY'];
 
 const app = express();
 app.use(
@@ -19,7 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   session({
-    secret: process.env.PASSPORT_SECRET_KEY,
+    secret: PASSPORT_SECRET_KEY,
     resave: false,
     saveUninitialized: true,
   })
