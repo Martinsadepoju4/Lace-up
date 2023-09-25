@@ -8,6 +8,8 @@ const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 
 const app = express();
+
+// allow   external source to access apis
 app.use(
   cors({
     origin: process.env.SERVER_URL,
