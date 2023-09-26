@@ -69,10 +69,11 @@ function Footer() {
             )}
           </span>
         </li>
-        {categories.map((element) => (
+        {categories.map((element, index) => (
           <li
             onClick={() => toGender(element.name)}
             className={footerCSS.firstDropdownitem}
+            key={index}
           >
             {element.name}
           </li>

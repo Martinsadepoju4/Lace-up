@@ -20,9 +20,9 @@ export default function Checkout() {
   const { cartItems, userLoggedIn } = useContext(CartContext);
   const { data } = useQuery({
     queryKey: ["userinfo"],
-    queryFn: () => fetchUserInfo(userLoggedIn.username),
+    queryFn: () => fetchUserInfo(userLoggedIn),
     onSuccess: (data) => {
-      console.log("useQuery onSuccess", data);
+      console.log("useQuery successful", data);
       const firstAndLastName = data.name.split(" ");
       setContactInfo({
         firstname: firstAndLastName[0],
@@ -44,7 +44,8 @@ export default function Checkout() {
   });
 
   const mutation = useMutation(
-    (newData) => axios.post("http://localhost:5000/edituserdata", newData),
+    (newData) =>
+      axios.post(process.env.REACT_APP_API_URL + "edituserdata", newData),
     {
       onSuccess: () => {
         const firstAndLastName = data.name.split(" ");

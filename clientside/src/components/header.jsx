@@ -41,10 +41,6 @@ function Header(props) {
   useEffect(() => {
     const intervalId = setInterval(() => {
       header.current.style.backgroundImage = "url(" + classes[index]?.url + ")";
-      header.current.classList.add(HeaderCSS["slide-animation"]);
-      setTimeout(() => {
-        header.current.classList.remove(HeaderCSS["slide-animation"]); // Remove the slide-animation class after the animation finishes
-      }, 3000);
       setIndex((prevValue) => {
         if (prevValue <= 3) {
           return prevValue + 1;

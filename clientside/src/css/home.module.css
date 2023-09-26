@@ -113,6 +113,7 @@ button {
 :global .loadingImage {
   height: 201px;
   width: 201px;
+  overflow: hidden;
   margin-top: 7%;
 }
 :global .loading p {
