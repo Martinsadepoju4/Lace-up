@@ -1,11 +1,13 @@
-require("dotenv").config();
+
 const express = require("express");
+require ("dotenv").config({path:'./.env'})
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
+const PASSPORT_SECRET_KEY = process.env['PASSPORT_SECRET_KEY'];
 
 const app = express();
 
@@ -20,7 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   session({
-    secret: process.env.PASSPORT_SECRET_KEY,
+    secret: PASSPORT_SECRET_KEY,
     resave: false,
     saveUninitialized: true,
   })
