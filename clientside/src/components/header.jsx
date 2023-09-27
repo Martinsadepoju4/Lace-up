@@ -71,13 +71,13 @@ function Header(props) {
 
   function deleteExistingClass() {
     circles.current.forEach((element) => {
-      if (element.classList.contains("header_active__UiXKG")) {
-        element.classList.remove("header_active__UiXKG");
+      if (element.classList.contains(HeaderCSS["active"])) {
+        element.classList.remove(HeaderCSS["active"]);
       }
     });
   }
   function addNewClass(n) {
-    circles.current[n].classList.add("header_active__UiXKG");
+    circles.current[n].classList.add(HeaderCSS["active"]);
   }
   function changeImage(event) {
     clearInterval(id);
@@ -119,7 +119,7 @@ function Header(props) {
     <header ref={header} className={HeaderCSS.head}>
       <Nav linkcolor="white" clsWidth="smallCls" searchIconDisplay="show" />
       <div className={HeaderCSS.headerBox}>
-        <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
+        <h1>Step into the future of style with sneakers that redefine cool.</h1>
         <button onClick={toShop} className="button">
           Explore More
         </button>
