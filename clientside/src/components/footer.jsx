@@ -58,7 +58,7 @@ function Footer() {
       <hr className={footerCSS.footerHr} />
       <ul>
         <li className={footerCSS.firstDropdown} onClick={dropdown}>
-          Shop{" "}
+            <h5>Shop{" "}</h5>
           <span className={footerCSS.dropIcon}>
             {firstDropdownIcon ? (
               <KeyboardArrowDownRoundedIcon
@@ -82,7 +82,7 @@ function Footer() {
       <hr className={footerCSS.footerHr} />
       <ul>
         <li className={footerCSS.secondDropdown} onClick={dropdown}>
-          Connect{" "}
+          <h5>Connect{" "}</h5>
           <span className={footerCSS.dropIcon}>
             {secondDropdownIcon ? (
               <KeyboardArrowDownRoundedIcon
@@ -110,7 +110,7 @@ function Footer() {
       </ul>
       <hr className={footerCSS.footerHr} />
       <ul>
-        <li>Connect</li>
+        <li><h5>Connect{" "}</h5></li> 
         <li>martinsadepoju4@gmail.com</li>
         <li>
           <h2 className={footerCSS.logo}>
@@ -119,7 +119,7 @@ function Footer() {
         </li>
       </ul>
       <ul className={footerCSS.stayInTouch}>
-        <li>Stay in touch</li>
+        <li><h5>Stay In Touch</h5></li>
         <li>
           <form>
             <input
