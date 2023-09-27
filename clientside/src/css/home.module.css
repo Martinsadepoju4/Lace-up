@@ -109,12 +109,11 @@ button {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 70vw;
+  margin: auto;
 }
 :global .loadingImage {
-  height: 201px;
-  width: 201px;
-  overflow: hidden;
-  margin-top: 7%;
+  margin-bottom: 10%;
 }
 :global .loading p {
   margin-top: 0px;

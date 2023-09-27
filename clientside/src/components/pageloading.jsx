@@ -1,6 +1,6 @@
 import React from "react";
 import { useRef } from "react";
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 import LoadingAnimation from "../images/lottieflow-loading-08-000000-easey.json";
 import { useEffect } from "react";
 
@@ -9,12 +9,15 @@ function Pageloading() {
     <div className="loading">
       <div className="loadingImage">
         <Lottie
-          style={{ width: 200, height: 200 }}
+          style={{ width: 150, height: 150 }}
           loop={true}
           animationData={LoadingAnimation}
         />
       </div>
-      <p>Please check your internet connection or reload the page</p>
+      <p>
+        If loading persists, kindly check your internet connection and reload
+        the page
+      </p>
     </div>
   );
 }
