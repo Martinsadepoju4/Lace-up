@@ -10,7 +10,7 @@
   color: #f4f4f4;
   font-family: clash display;
   padding-bottom: 50px;
-  height: 95vh;
+  height: 100vh;
   overflow: hidden;
   box-sizing: border-box;
   background-image: url("https://wallpaperaccess.com/full/1076768.jpg");
@@ -126,5 +126,8 @@ li {
     margin: 4rem 0 1rem 0;
   }
 }
-@media (max-width: 414px) {
+@media (max-width: 375px) {
+  .head {
+    height: 90vh;
+  }
 }

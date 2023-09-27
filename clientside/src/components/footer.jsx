@@ -13,12 +13,13 @@ function Footer() {
   function dropdown(event) {
     const target = event.target.classList;
     const shopList = document.querySelectorAll(
-      footerCSS["firstDropdownitem"]
+      "." + footerCSS["firstDropdownitem"]
     );
     const connectList = document.querySelectorAll(
-      footerCSS["secondDropdownitem"]
+      "." + footerCSS["secondDropdownitem"]
     );
     if (Object.values(target).includes(footerCSS["firstDropdown"])) {
+      console.log(shopList);
       shopList.forEach((element) =>
         element.classList.toggle(footerCSS["show"])
       );
@@ -58,7 +59,7 @@ function Footer() {
       <hr className={footerCSS.footerHr} />
       <ul>
         <li className={footerCSS.firstDropdown} onClick={dropdown}>
-            <h5>Shop{" "}</h5>
+          <h5>Shop </h5>
           <span className={footerCSS.dropIcon}>
             {firstDropdownIcon ? (
               <KeyboardArrowDownRoundedIcon
@@ -82,7 +83,7 @@ function Footer() {
       <hr className={footerCSS.footerHr} />
       <ul>
         <li className={footerCSS.secondDropdown} onClick={dropdown}>
-          <h5>Connect{" "}</h5>
+          <h5>Connect </h5>
           <span className={footerCSS.dropIcon}>
             {secondDropdownIcon ? (
               <KeyboardArrowDownRoundedIcon
@@ -110,8 +111,10 @@ function Footer() {
       </ul>
       <hr className={footerCSS.footerHr} />
       <ul>
-        <li><h5>Connect{" "}</h5></li> 
-        <li>martinsadepoju4@gmail.com</li>
+        <li>
+          <h5>Connect </h5>
+        </li>
+        <li className={footerCSS.footerEmail}>martinsadepoju4@gmail.com</li>
         <li>
           <h2 className={footerCSS.logo}>
             [LACE<span>UP]</span>
@@ -119,7 +122,9 @@ function Footer() {
         </li>
       </ul>
       <ul className={footerCSS.stayInTouch}>
-        <li><h5>Stay In Touch</h5></li>
+        <li>
+          <h5>Stay In Touch</h5>
+        </li>
         <li>
           <form>
             <input

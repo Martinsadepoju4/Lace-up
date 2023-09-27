@@ -18,10 +18,9 @@ footer ul {
 }
 footer ul li {
   padding: 10px 0;
-  font-family: "monserrat"
 }
-footer ul li h5{
-  margin: 0
+footer ul li h5 {
+  margin: 0;
 }
 footer ul > :nth-child(1) {
   font-weight: bold;
@@ -29,6 +28,11 @@ footer ul > :nth-child(1) {
 }
 .firstDropdownitem {
   cursor: pointer;
+}
+.firstDropdownitem,
+.secondDropdownitem,
+.footerEmail {
+  font-family: "montserrat";
 }
 .secondDropdownitem a {
   text-decoration: none;
@@ -38,6 +42,7 @@ footer ul > :nth-child(1) {
   background-color: #f4f4f4;
   width: 250px;
   border: 0 none black;
+  padding: 10px;
 }
 
 .footerInput:focus {
@@ -100,6 +105,9 @@ form button {
   }
   .show {
     display: list-item;
+  }
+  .footerInput {
+    width: 100%;
   }
 }
 @media (max-width: 414px) {
