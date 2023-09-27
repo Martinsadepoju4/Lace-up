@@ -13,12 +13,12 @@ function Footer() {
   function dropdown(event) {
     const target = event.target.classList;
     const shopList = document.querySelectorAll(
-      ".footer_firstDropdownitem__PFkaB"
+      footerCSS["firstDropdownitem"]
     );
     const connectList = document.querySelectorAll(
-      ".footer_secondDropdownitem__DHRd4"
+      footerCSS["secondDropdownitem"]
     );
-    if (Object.values(target).includes("footer_firstDropdown__jR27e")) {
+    if (Object.values(target).includes(footerCSS["firstDropdown"])) {
       shopList.forEach((element) =>
         element.classList.toggle(footerCSS["show"])
       );
@@ -29,7 +29,7 @@ function Footer() {
           return true;
         }
       });
-    } else if (Object.values(target).includes("footer_secondDropdown__sAOVn")) {
+    } else if (Object.values(target).includes(footerCSS["secondDropdown"])) {
       connectList.forEach((element) =>
         element.classList.toggle(footerCSS["show"])
       );
