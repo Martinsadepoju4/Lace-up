@@ -18,6 +18,7 @@ footer ul {
 }
 footer ul li {
   padding: 10px 0;
+  font-family: "monserrat"
 }
 
 footer ul > :nth-child(1) {
