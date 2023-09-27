@@ -42,7 +42,6 @@
 
 .typingEffect {
   display: inline;
-  font-family: monospace;
   white-space: nowrap;
   overflow: hidden;
 }
