@@ -88,11 +88,14 @@
     width: 95vw;
   }
   .category {
-    overflow-y: hidden;
+    width: 90%;
+    flex-direction: column;
+    margin: auto;
+    height: auto !important;
   }
   .secondHolder {
     /* height: inherit !important; */
-    margin-right: 0;
+    /* margin-right: 0; */
   }
   .sex_image {
     height: 86.5%;

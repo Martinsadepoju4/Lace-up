@@ -111,7 +111,8 @@
     height: 100%;
   }
   .sex_container {
-    width: 30vw !important;
+    width: 100% !important;
+    height: 55vh !important;
   }
   .sex_image {
     height: 85%;
