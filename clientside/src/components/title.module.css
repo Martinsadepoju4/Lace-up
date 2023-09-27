@@ -54,4 +54,10 @@
   .containerTwo h1 {
     font-size: 2em;
   }
+  .container {
+  padding: 20px 0;
+}
+.containerTwo {
+  width: 80vw;
+}
 }
