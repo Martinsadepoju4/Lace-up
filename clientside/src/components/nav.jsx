@@ -21,20 +21,26 @@ function Nav(props) {
   const menu = useRef(null);
   const cartRef = useRef(null);
   const [cartSwitch, setCartSwitch] = useState(false);
+  const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
 
   const openMenu = () => {
-    document.body.style.overflow = "hidden";
+    setIsHamburgerOpen(true);
     hamburger.current.style.display = "none";
     menu.current.style.display = "block";
     menu.current.classList.add(NavCSS["open"]);
     cancelIcon.current.style.display = "list-item";
   };
   const closeMenu = () => {
-    document.body.style.overflow = "visible";
+    setIsHamburgerOpen(false);
     hamburger.current.style.display = "block";
     menu.current.style.display = "none";
     cancelIcon.current.style.display = "none";
   };
+  useEffect(() => {
+    isHamburgerOpen
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "visible");
+  }, [isHamburgerOpen]);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
