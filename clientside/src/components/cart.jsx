@@ -48,9 +48,9 @@ export default function Cart(props) {
 
   return (
     <motion.div
-      initial={{ x: "110%" }}
-      animate={props.cartSwitch ? { x: 1 } : { x: "110%" }}
-      exit={{ x: "110%" }}
+      initial={{ x: "100%" }}
+      animate={props.cartSwitch ? { x: 0 } : { x: "100%" }}
+      exit={{ x: "-100%" }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
       ref={props.cref}
       className={cartCSS.cart}

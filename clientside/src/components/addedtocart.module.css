@@ -1,57 +1,64 @@
-.container{
-    display: none;
-    position: absolute;
-    top: 11vh;
-    right: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
-    width: 350px;
-    font-size: small;
-    padding: 30px;
-    background-color: white;
-    color: black !important;
+.container {
+  display: none;
+  position: absolute;
+  top: 11vh;
+  right: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  width: 350px;
+  font-size: small;
+  padding: 30px;
+  background-color: white;
+  color: black !important;
 }
-.showContainer{
-    display: block !important;
+.showContainer {
+  display: block !important;
 }
-.header{
-    display: flex;
-    margin-top: 5px;
+.header {
+  display: flex;
+  margin-top: 5px;
 
-justify-content: space-between;
+  justify-content: space-between;
 }
-.main{
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-    align-items: center;
+.main {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  align-items: center;
 }
-.mainText{
-    width: 60%;
+.mainText {
+  width: 60%;
 }
-.mainText>:nth-child(1), .mainText>:nth-child(3){
-    font-weight: bold;
+.mainText > :nth-child(1),
+.mainText > :nth-child(3) {
+  font-weight: bold;
 }
-.main img{
-    width: 100px;
-    height: 100px;
+.main img {
+  width: 100px;
+  height: 100px;
 }
-.buttons{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
-.buttons>:nth-child(1){
-    color: black;
-    width: 48%;
-    background-color: white;
-    padding: 15px 10px;
-    border-radius: 20px;
-    border: 1px solid black;
+.buttons > :nth-child(1) {
+  color: black;
+  width: 48%;
+  background-color: white;
+  padding: 15px 10px;
+  border-radius: 20px;
+  border: 1px solid black;
 }
-.buttons>:nth-child(2){
-    color: #d1f090;
-    background-color: black;
-    width: 48%;
-    padding: 12px;
-    border-radius: 20px;
+.buttons > :nth-child(2) {
+  color: #d1f090;
+  background-color: black;
+  width: 48%;
+  padding: 12px;
+  border-radius: 20px;
+}
+@media (max-width: 912px) {
+  .container {
+    scale: 0.6;
+    top: 0;
+  }
 }

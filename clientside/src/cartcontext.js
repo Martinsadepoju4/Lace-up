@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
 
 export const CartContext = createContext(null);
 
@@ -23,6 +23,7 @@ export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState(
     retrieveFromLocalStorage ? retrieveFromLocalStorage : []
   );
+  const hasUserOpenedSearch = useRef(null);
 
   const saveItems = (cartItems) => {
     setCartItems(cartItems);
@@ -40,6 +41,7 @@ export function CartProvider({ children }) {
     saveItems,
     userLoggedIn,
     saveUser,
+    hasUserOpenedSearch,
   };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }

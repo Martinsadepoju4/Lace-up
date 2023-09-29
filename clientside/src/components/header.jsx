@@ -33,41 +33,15 @@ function Header(props) {
   const circles = useRef([]);
   const arr = [0, 1, 2, 3, 4];
   const navigate = useNavigate();
-
+  useEffect(() => {
+    const n = Math.floor(Math.random() * 5);
+    deleteExistingClass();
+    header.current.style.backgroundImage = "url(" + classes[n].url + ")";
+    addNewClass(n);
+  }, []);
   const toShop = () => {
     navigate("/shop");
   };
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      header.current.style.backgroundImage = "url(" + classes[index]?.url + ")";
-      setIndex((prevValue) => {
-        if (prevValue <= 3) {
-          return prevValue + 1;
-        } else {
-          return 0;
-        }
-      });
-    }, 4000);
-    setId(intervalId);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [index]);
-
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (!header.current || !header.current.getBoundingClientRect) {
-        return;
-      }
-      const { top, bottom } = header.current.getBoundingClientRect();
-      const isVisible = top < window.innerHeight && bottom > 0;
-      if (!isVisible) {
-        clearInterval(id);
-      }
-    });
-  }, [id]);
 
   function deleteExistingClass() {
     circles.current.forEach((element) => {

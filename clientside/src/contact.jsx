@@ -89,7 +89,7 @@ function Contact() {
                 center={[51.505, -0.09]}
                 zoom={35}
                 scrollWheelZoom={false}
-                style={{ height: "30vw", width: "30vw" }}
+                style={{ height: "250px", width: "250px" }}
               >
                 <TileLayer
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

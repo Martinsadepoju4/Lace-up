@@ -9,6 +9,9 @@ nav {
   z-index: 5000;
   transition: background-color 0.3 ease-in-out;
 }
+.cartSpan {
+  color: blue;
+}
 .black {
   color: black;
 }
@@ -34,9 +37,6 @@ nav {
 span {
   color: #d1f090;
 }
-.cartSpan {
-  color: inherit;
-}
 
 .white {
   color: #fff;
@@ -54,8 +54,13 @@ span {
 .smallCls {
   width: 12%;
 }
-.searchInput {
+.searchInput,
+.hamburgerSearchInput {
   padding: 5px 10px;
+}
+.hamburgerSearchInput {
+  margin-left: -13px;
+  width: 42vw;
 }
 .searchIcon,
 .searchInput {
@@ -80,6 +85,9 @@ span {
 .hamburger,
 .mobileNav {
   display: none;
+}
+.hamburgerSearchLogo {
+  visibility: hidden;
 }
 
 li {
@@ -178,7 +186,7 @@ li {
     padding-left: 0;
   }
   .mobileLinks {
-    height: 20vh;
+    height: 25vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

@@ -45,7 +45,6 @@ function Footer() {
   }
 
   const toGender = (value) => {
-    console.log("to gender runniing");
     navigate("/shop", {
       state: {
         key: "gender",

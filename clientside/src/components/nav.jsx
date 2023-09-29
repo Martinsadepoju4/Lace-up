@@ -1,5 +1,11 @@
 import { React, useRef, useState, useContext, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import {
+  Link,
+  NavLink,
+  Navigate,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import PersonIcon from "@mui/icons-material/Person";
 import SearchIcon from "@mui/icons-material/Search";
@@ -11,7 +17,8 @@ import Addedtocart from "./addedtocart";
 import NavCSS from "./nav.module.css";
 
 function Nav(props) {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, hasUserOpenedSearch } = useContext(CartContext);
+  const location = useLocation();
   const itemAddedToCart = cartItems[cartItems.length - 1];
   const [linkColor, updatelinkColor] = useState(NavCSS[props.linkcolor]);
   const navRef = useRef(null);
@@ -22,7 +29,14 @@ function Nav(props) {
   const cartRef = useRef(null);
   const [cartSwitch, setCartSwitch] = useState(false);
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    if (hasUserOpenedSearch.current === true) {
+      setTimeout(() => openMenu(), 1000);
+      hasUserOpenedSearch.current = false;
+    }
+  }, []);
   const openMenu = () => {
     setIsHamburgerOpen(true);
     hamburger.current.style.display = "none";
@@ -60,15 +74,16 @@ function Nav(props) {
 
   function showCart() {
     setCartSwitch(true);
-    // cartRef.current.style.display = "block";
-    // document.body.style.overflow = "hidden";
   }
   function hideCart() {
     setCartSwitch(false);
-    // cartRef.current.style.display = "none";
-    // document.body.style.overflow = "scroll";
   }
-  useEffect(() => console.log(cartSwitch), [cartSwitch]);
+  const toShop = () => {
+    if (location.pathname !== "/shop") {
+      hasUserOpenedSearch.current = true;
+      navigate("/shop");
+    }
+  };
   return (
     <div>
       <nav ref={navRef}>
@@ -152,9 +167,9 @@ function Nav(props) {
               </li>
               <li onClick={showCart}>
                 <ShoppingBagOutlinedIcon />
-                <span>{cartItems.length}</span>
+                <span className={NavCSS.cartSpan}>{cartItems.length}</span>
               </li>
-              <li>
+              <li className={NavCSS.hamburgerSearchLogo}>
                 <SearchIcon />
               </li>
               <li
@@ -186,6 +201,16 @@ function Nav(props) {
               <Link className={linkColor} to="/contact">
                 CONTACT
               </Link>
+            </li>
+            <li>
+              <input
+                onClick={toShop}
+                onChange={props.searchFunction}
+                className={NavCSS.hamburgerSearchInput}
+                type="text"
+                name="search"
+                placeholder="Search"
+              />
             </li>
           </ul>
         </div>

@@ -12,16 +12,20 @@ import { useContext } from "react";
 import { CartContext } from "./cartcontext";
 import MiniNav from "./components/mininav";
 import { useQuery } from "@tanstack/react-query";
-import { getShopData } from "./apifunctions";
+import { fetchNewArrival, fetchTrending, getShopData } from "./apifunctions";
 import Cartitem from "./components/cartitem";
 
 export default function Product() {
-  const { shopData, setShopData } = useState(null);
-  const { data, isLoading, error } = useQuery({
+  // const { shopData, setShopData } = useState(null);
+  const {
+    data: shopdata,
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: ["shopData"],
     queryFn: getShopData,
     onSuccess: (data) => {
-      setShopData(data);
+      // setShopData(data);
     },
     onError: (error) => {
       console.log("onERR", error);
@@ -29,7 +33,21 @@ export default function Product() {
     // refetchInterval: 150000,
     enabled: false,
   });
+  const { data: trendData, error: trendError } = useQuery({
+    queryKey: ["trendquery"],
+    queryFn: fetchTrending,
+    onError: (trendError) => {
+      console.log("onERR", trendError);
+    },
+  });
 
+  const { data: newArrData, error: newArrivalError } = useQuery({
+    queryKey: ["newarrivalquery"],
+    queryFn: fetchNewArrival,
+    onError: (error) => {
+      console.log("onERR", error);
+    },
+  });
   // useEffect(() => {
   //   const result = shopData;
 
@@ -70,10 +88,10 @@ export default function Product() {
   const item = () => {
     let array;
     if (dataSource === "trending") {
-      array = trending;
+      array = trendData;
     } else if (dataSource === "newArrival") {
-      array = newArrival;
-    } else if (dataSource === "shopData") array = shopData;
+      array = newArrData;
+    } else if (dataSource === "shopData") array = shopdata;
     return array.filter((data) => {
       return data.id === Number(id);
     });

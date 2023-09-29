@@ -19,7 +19,9 @@ export default function Sex(props) {
       className={[cardCSS[props.margin], cardCSS.sex_container].join(" ")}
     >
       <img className={cardCSS.sex_image} src={props.src} alt={props.alt} />
-      <p className={cardCSS.brandset_name}>{props.name}</p>
+      <p className={[cardCSS["sex_name"], cardCSS.brandset_name].join(" ")}>
+        {props.name}
+      </p>
     </div>
   );
 }

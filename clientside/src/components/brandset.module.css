@@ -6,7 +6,7 @@
 }
 .sex_container {
   width: 25vw !important;
-  height: 25vw !important;
+  height: 27vw !important;
   margin-right: 20px;
   overflow: hidden;
 }
@@ -37,7 +37,7 @@
 }
 .sex_image {
   width: inherit;
-  height: 90%;
+  height: 88%;
 }
 
 .image_container:hover img {
@@ -75,10 +75,18 @@
   /* height: 10%; */
   cursor: pointer;
 }
+.sex_name {
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px !important;
+}
 
 @media (max-width: 1280px) {
   .brandset_name {
     font-size: x-small !important;
+  }
+  .sex_name {
+    font-size: 16px !important;
   }
 }
 @media (max-width: 1024px) {
@@ -113,6 +121,7 @@
   .sex_container {
     width: 100% !important;
     height: 55vh !important;
+    margin-bottom: 20px;
   }
   .sex_image {
     height: 85%;
@@ -129,6 +138,9 @@
   }
   .brandset_name {
     font-size: xx-small !important;
+  }
+  .sex_name {
+    font-size: 16px !important;
   }
 }
 @media (max-width: 375px) {

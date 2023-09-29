@@ -15,10 +15,10 @@ export default function Addedtocart(props) {
   useEffect(() => {
     let id;
     if (prevCartItems.current !== cartItems) {
-      // containerRef.current.classList.add(addedCSS["showContainer"]);
+      containerRef.current.classList.add(addedCSS["showContainer"]);
       setContainerSwitch(true);
       id = setTimeout(() => {
-        // containerRef.current.classList.remove(addedCSS["showContainer"]);
+        containerRef.current.classList.remove(addedCSS["showContainer"]);
         setContainerSwitch(false);
       }, 4000);
     }
