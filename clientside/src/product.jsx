@@ -115,19 +115,6 @@ export default function Product() {
     } else secondHeader.current.classList.add(productCSS["active"]);
   };
 
-  // function addItem(name, price, src, vendor) {
-  //   const newPrice = Number(price.replace("$", ""));
-  //   const data = [
-  //     ...Cartitems,
-  //     {
-  //       name: name,
-  //       price: newPrice,
-  //       img: src,
-  //       vendor: vendor,
-  //     },
-  //   ];
-  //   saveItems(data);
-  // }
   function addItem(name, price, src, vendor, gender) {
     const newPrice = Number(price.replace("$", ""));
     const data = [
@@ -186,7 +173,7 @@ export default function Product() {
                   <div>
                     <h3>Pick Up In Store</h3>
                     <p>Select your local store to grab your order</p>
-                    <Link to="/about">Show nearby stores</Link>
+                    <Link to="/contact">Show nearby stores</Link>
                   </div>
                 </div>
               </div>

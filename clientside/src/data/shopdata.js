@@ -275,9 +275,9 @@ const staffs = [
     id: 0,
     image:
       "https://pbs.twimg.com/profile_images/1501333741045702670/f4xixThR_400x400.jpg",
-    name: "flourish Griffin",
-    bio: "he is a master of lungs cooking, that is surely not his main features. he orchestrates even more organized crime.",
-    skills: ["slutter", "lung-cooking", "gaming"],
+    name: "Sewa Griffin",
+    bio: "Her work is loving me, she is very petty and pretty. don't make expensive jokes with her!",
+    skills: ["sex", "food", "food again"],
   },
   {
     id: 1,
