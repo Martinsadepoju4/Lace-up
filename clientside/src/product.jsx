@@ -52,7 +52,7 @@ export default function Product() {
   //   const result = shopData;
 
   // }, []);
-  const { Cartitems, saveItems } = useContext(CartContext);
+  const { cartItems, saveItems } = useContext(CartContext);
   const sizes = [
     "37",
     "38",
@@ -115,15 +115,29 @@ export default function Product() {
     } else secondHeader.current.classList.add(productCSS["active"]);
   };
 
-  function addItem(name, price, src, vendor) {
+  // function addItem(name, price, src, vendor) {
+  //   const newPrice = Number(price.replace("$", ""));
+  //   const data = [
+  //     ...Cartitems,
+  //     {
+  //       name: name,
+  //       price: newPrice,
+  //       img: src,
+  //       vendor: vendor,
+  //     },
+  //   ];
+  //   saveItems(data);
+  // }
+  function addItem(name, price, src, vendor, gender) {
     const newPrice = Number(price.replace("$", ""));
     const data = [
-      ...Cartitems,
+      ...cartItems,
       {
         name: name,
         price: newPrice,
         img: src,
         vendor: vendor,
+        gender: gender,
       },
     ];
     saveItems(data);
