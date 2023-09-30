@@ -26,7 +26,6 @@ function Home() {
     onError: (trendError) => {
       console.log("onERR", trendError);
     },
-    refetchInterval: 150000,
   });
   const { data: brandData, error: brandError } = useQuery({
     queryKey: ["brandquery"],
@@ -37,7 +36,6 @@ function Home() {
     onError: (brandError) => {
       console.log("onERR", brandError);
     },
-    refetchInterval: 150000,
   });
   const { data: newArrData, error: newArrivalError } = useQuery({
     queryKey: ["newarrivalquery"],
@@ -48,7 +46,6 @@ function Home() {
     onError: (error) => {
       console.log("onERR", error);
     },
-    refetchInterval: 150000,
   });
 
   if (!brandsData || !trendingData || !newArrivalData) {
