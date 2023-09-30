@@ -24,6 +24,7 @@ export function CartProvider({ children }) {
     retrieveFromLocalStorage ? retrieveFromLocalStorage : []
   );
   const hasUserOpenedSearch = useRef(null);
+  const [hasUserOpenedCart, setHasUserOpenedCart] = useState(null);
 
   const saveItems = (cartItems) => {
     setCartItems(cartItems);
@@ -42,6 +43,8 @@ export function CartProvider({ children }) {
     userLoggedIn,
     saveUser,
     hasUserOpenedSearch,
+    hasUserOpenedCart,
+    setHasUserOpenedCart,
   };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }

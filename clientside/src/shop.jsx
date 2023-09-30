@@ -25,7 +25,6 @@ function Shop() {
     queryKey: ["shopData"],
     queryFn: getShopData,
     onSuccess: (data) => {
-      console.log("new data requested");
       updatenewShopData(data);
       if (locationValue !== null) {
         setAutoDataFetch(false);
@@ -40,7 +39,6 @@ function Shop() {
     onError: (error) => {
       console.log("onERR", error);
     },
-    // refetchInterval: 150000,
     enabled: autoDataFetch,
   });
   const [newShopData, updatenewShopData] = useState(data);
@@ -102,14 +100,12 @@ function Shop() {
         ? data.color.includes(filterquery.color.toUpperCase())
         : true;
       const result = brandResult && genderResult && priceResult && colorResult;
-      console.log(result);
       return result;
     });
   };
 
   useMemo(() => {
     const result = filterShopData(data, filterquery);
-    console.log(result);
     updatenewShopData(result);
   }, [filterquery]);
 
@@ -153,8 +149,7 @@ function Shop() {
 
   function showFilter() {
     setfilterState(filterState ? false : true);
-    console.log("showfilter clicked");
-    // filter.current.classList.toggle(filterCSS.display);
+    filter.current.classList.toggle(filterCSS.display);
   }
 
   function handleClick(event) {

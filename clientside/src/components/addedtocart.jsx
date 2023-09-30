@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export default function Addedtocart(props) {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, hasUserOpenedCart, setHasUserOpenedCart } =
+    useContext(CartContext);
   const prevCartItems = useRef(cartItems);
   const containerRef = useRef(null);
   const [containerSwitch, setContainerSwitch] = useState(false);
@@ -20,27 +21,28 @@ export default function Addedtocart(props) {
       id = setTimeout(() => {
         containerRef.current.classList.remove(addedCSS["showContainer"]);
         setContainerSwitch(false);
-      }, 4000);
+      }, 3000);
     }
     return () => {
       clearTimeout(id);
     };
   }, [cartItems]);
 
-  useEffect(() => {
-    console.log(containerSwitch);
-  }, [containerSwitch]);
-
   function closeContainer() {
-    // containerRef.current.classList.remove(addedCSS["showContainer"]);
+    containerRef.current.classList.remove(addedCSS["showContainer"]);
     setContainerSwitch(false);
   }
   const toCheckout = () => navigate("/checkout");
+
+  const toBag = () => {
+    setHasUserOpenedCart(true);
+    console.log("viewbag", hasUserOpenedCart);
+  };
   return (
-    <motion.div
-      initial={{ x: "100%" }}
-      animate={containerSwitch ? { x: 0 } : { x: "100%" }}
-      exit={{ x: "100%" }}
+    <div
+      initial={{ x: "101%" }}
+      animate={containerSwitch ? { x: 1 } : { x: "101%" }}
+      exit={{ x: "101%" }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
       ref={containerRef}
       className={addedCSS.container}
@@ -57,9 +59,9 @@ export default function Addedtocart(props) {
         </div>
       </div>
       <div className={addedCSS.buttons}>
-        <button>View Bag</button>
+        <button onClick={toBag}>View Bag</button>
         <button onClick={toCheckout}>Checkout</button>
       </div>
-    </motion.div>
+    </div>
   );
 }

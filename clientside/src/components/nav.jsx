@@ -17,7 +17,12 @@ import Addedtocart from "./addedtocart";
 import NavCSS from "./nav.module.css";
 
 function Nav(props) {
-  const { cartItems, hasUserOpenedSearch } = useContext(CartContext);
+  const {
+    cartItems,
+    hasUserOpenedSearch,
+    hasUserOpenedCart,
+    setHasUserOpenedCart,
+  } = useContext(CartContext);
   const location = useLocation();
   const itemAddedToCart = cartItems[cartItems.length - 1];
   const [linkColor, updatelinkColor] = useState(NavCSS[props.linkcolor]);
@@ -37,6 +42,12 @@ function Nav(props) {
       hasUserOpenedSearch.current = false;
     }
   }, []);
+  useEffect(() => {
+    if (hasUserOpenedCart === true) {
+      setTimeout(() => showCart(), 500);
+      setHasUserOpenedCart(false);
+    }
+  }, [hasUserOpenedCart]);
   const openMenu = () => {
     setIsHamburgerOpen(true);
     hamburger.current.style.display = "none";
@@ -73,6 +84,7 @@ function Nav(props) {
   });
 
   function showCart() {
+    cartRef.current.style.display = "block";
     setCartSwitch(true);
   }
   function hideCart() {
@@ -84,10 +96,13 @@ function Nav(props) {
       navigate("/shop");
     }
   };
+  const tohome = () => {
+    navigate("/");
+  };
   return (
     <div>
       <nav ref={navRef}>
-        <h2 className={NavCSS.logo + " " + linkColor}>
+        <h2 onClick={tohome} className={NavCSS.logo + " " + linkColor}>
           [LACE<span>UP]</span>
         </h2>
         <ul className={NavCSS.navLinks}>

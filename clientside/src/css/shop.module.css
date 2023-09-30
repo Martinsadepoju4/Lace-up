@@ -91,7 +91,7 @@
     height: 50px;
   }
   .productsContainer {
-    grid-template-columns: repeat(3, 30.5%);
+    grid-template-columns: repeat(2, 47.5%);
   }
   .noResult {
     scale: 0.7;
@@ -100,7 +100,6 @@
 @media (max-width: 440px) {
   .productsContainer {
     display: grid;
-    grid-template-columns: repeat(2, 47%);
     grid-column-gap: 20px;
     grid-row-gap: 30px;
   }
