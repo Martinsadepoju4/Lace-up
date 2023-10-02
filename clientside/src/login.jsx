@@ -18,27 +18,100 @@ export default function Login() {
   const [logininfo, setLoginInfo] = useState({});
   const firstDivMainRef = useRef(null);
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("");
+  const [validationError, setValidationError] = useState({});
   const signupMessage =
     "Step into style. Sign up now for exclusive access to the hottest sneakers and limited editions. Join the sneaker community today!";
   const loginMessage =
     "Step into a world of style and comfort. Log in and lace up!";
 
+  const validateName = (event) => {
+    const { name, value } = event.target;
+    console.log("name validator", value);
+    if (/^[A-Za-z\s]+$/.test(value)) {
+      setValidationError((prevValue) => {
+        return {
+          ...prevValue,
+          [name]: "",
+        };
+      });
+    } else {
+      console.log("not a match");
+      setValidationError((prevValue) => {
+        return {
+          ...prevValue,
+          [name]:
+            "please write name in this format *John Doe* with no number or symbol ",
+        };
+      });
+    }
+  };
+
+  const validateEmail = (event) => {
+    const value = event.target.value;
+    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) === false) {
+      setValidationError((prevValue) => {
+        return {
+          ...prevValue,
+          email: "Please enter your email in this format: name@company.com.",
+        };
+      });
+    } else {
+      setValidationError((prevValue) => {
+        return {
+          ...prevValue,
+          email: "",
+        };
+      });
+    }
+  };
+  const validatePassword = (event) => {
+    const value = event.target.value;
+    if (value.length < 5) {
+      setValidationError((prevValue) => {
+        return {
+          ...prevValue,
+          password: "your password must be at least 5 characters.",
+        };
+      });
+    } else {
+      setValidationError((prevValue) => {
+        return {
+          ...prevValue,
+          password: "",
+        };
+      });
+    }
+  };
+
   function loginSwitch() {
     updateLoginState((prevalue) => (prevalue ? false : true));
+    setErrorMessage("");
+    setValidationError({});
     firstDivMainRef.current.classList.toggle(loginCSS["reduceHeight"]);
   }
 
   const handleSignInfo = (event) => {
-    console.log(signupinfo);
     const { name, value } = event.target;
+    if (name === "name") {
+      validateName(event);
+    } else if (name === "username") {
+      validateEmail(event);
+    } else {
+      validatePassword(event);
+    }
     setSignupInfo((prevValue) => ({
       ...prevValue,
       [name]: value,
     }));
   };
   const handleLoginInfo = (event) => {
-    console.log(logininfo);
     const { name, value } = event.target;
+    if (name === "username") {
+      validateEmail(event);
+    } else if (name === "password") {
+      validatePassword(event);
+    }
     setLoginInfo((prevValue) => ({
       ...prevValue,
       [name]: value,
@@ -47,13 +120,28 @@ export default function Login() {
 
   const handleSignUp = async (event) => {
     event.preventDefault();
-    console.log("sign up clicked");
-    await registerUser(signupinfo, navigate, saveUser);
+    if (
+      signupinfo.name &&
+      signupinfo.username &&
+      signupinfo.password &&
+      validationError.email === "" &&
+      validationError.password === "" &&
+      validationError.name === ""
+    ) {
+      await registerUser(signupinfo, navigate, saveUser, setErrorMessage);
+    }
   };
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    await loginUser(logininfo, navigate, saveUser);
+    if (
+      logininfo.username &&
+      logininfo.password &&
+      validationError.email === "" &&
+      validationError.password === ""
+    ) {
+      await loginUser(logininfo, navigate, saveUser, setErrorMessage);
+    }
   };
 
   return (
@@ -78,6 +166,11 @@ export default function Login() {
                 type="email"
                 placeholder="Email"
               />
+              {validationError.email && (
+                <div className={loginCSS.validationMessage}>
+                  {validationError.email}
+                </div>
+              )}
               <input
                 onChange={handleLoginInfo}
                 name="password"
@@ -85,6 +178,14 @@ export default function Login() {
                 type="password"
                 placeholder="Password"
               />
+              {validationError.password && (
+                <div className={loginCSS.lastvalidationMessage}>
+                  {validationError.password}
+                </div>
+              )}
+              {errorMessage && (
+                <div className={loginCSS.errorMessage}>{errorMessage}</div>
+              )}
               <p className={loginCSS.signUpText}>
                 Don't have an account?{" "}
                 <span className={loginCSS.signUpSpan} onClick={loginSwitch}>
@@ -108,8 +209,13 @@ export default function Login() {
                 onChange={handleSignInfo}
                 name="name"
                 type="text"
-                placeholder="Name"
+                placeholder="Firstname and Lastname"
               />
+              {validationError.name && (
+                <div className={loginCSS.validationMessage}>
+                  {validationError.name}
+                </div>
+              )}
               <input
                 onChange={handleSignInfo}
                 name="username"
@@ -117,6 +223,11 @@ export default function Login() {
                 type="email"
                 placeholder="Email"
               />
+              {validationError.email && (
+                <div className={loginCSS.validationMessage}>
+                  {validationError.email}
+                </div>
+              )}
               <input
                 onChange={handleSignInfo}
                 name="password"
@@ -124,6 +235,14 @@ export default function Login() {
                 type="password"
                 placeholder="Password"
               />
+              {validationError.password && (
+                <div className={loginCSS.lastvalidationMessage}>
+                  {validationError.password}
+                </div>
+              )}
+              {errorMessage && (
+                <div className={loginCSS.errorMessage}>{errorMessage}</div>
+              )}
               <p className={loginCSS.signUpText}>
                 Have an account?{" "}
                 <span className={loginCSS.signUpSpan} onClick={loginSwitch}>

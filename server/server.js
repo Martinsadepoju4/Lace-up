@@ -1,13 +1,13 @@
-
 const express = require("express");
-require ("dotenv").config({path:'./.env'})
+require("dotenv").config({ path: "./.env" });
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
-const PASSPORT_SECRET_KEY = process.env['PASSPORT_SECRET_KEY'];
+const LocalStrategy = require("passport-local").Strategy;
+const PASSPORT_SECRET_KEY = process.env["PASSPORT_SECRET_KEY"];
 
 const app = express();
 
@@ -80,7 +80,7 @@ const Brand = mongoose.model("brand", brandSchema);
 const Newarrival = mongoose.model("newarrival", homeShoeSchema);
 const Trending = mongoose.model("trending", homeShoeSchema);
 
-passport.use(User.createStrategy());
+passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
@@ -143,7 +143,7 @@ app.post("/register", function (req, res) {
   User.register(newUser, req.body.password, function (err) {
     if (err) {
       console.log(err);
-      res.send(err);
+      res.status(500).send(err);
     } else {
       console.log("user registered!");
       res.send("/profile");
@@ -153,12 +153,29 @@ app.post("/register", function (req, res) {
 
 // user login route
 
-app.post("/login", passport.authenticate("local"), (req, res) => {
-  // If the control reaches here, authentication was successful
-  console.log("server", "logged in");
-  res.send("/profile");
-});
+// app.post("/login", passport.authenticate("local"), (req, res) => {
+//   // If the control reaches here, authentication was successful
+//   console.log("server", "logged in");
+//   res.send("/profile");
+// });
 
+app.post("/login", (req, res, next) => {
+  console.log("login rute active");
+  passport.authenticate("local", (err, user, info) => {
+    if (err) {
+      // An error occurred during authentication (e.g., database error)
+      return res.status(500).send({ error: err.message });
+    }
+    if (!user) {
+      console.log("no user");
+      // Authentication failed (e.g., incorrect username or password)
+      return res.status(401).send({ error: "Authentication failed" });
+    }
+    // If control reaches here, authentication was successful
+    console.log("server", "logged in");
+    res.status(200).send("/profile");
+  })(req, res, next);
+});
 // user logout route
 
 app.get("/logout", function (req, res, next) {

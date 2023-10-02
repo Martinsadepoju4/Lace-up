@@ -2,29 +2,7 @@ import { React, useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import HeaderCSS from "./header.module.css";
 import Nav from "./nav";
-
-const classes = [
-  {
-    index: 0,
-    url: "https://wallpaperaccess.com/full/1076768.jpg",
-  },
-  {
-    index: 1,
-    url: "https://wallpaperaccess.com/full/1076763.jpg",
-  },
-  {
-    index: 2,
-    url: "https://wallpaperaccess.com/full/1306720.jpg",
-  },
-  {
-    index: 3,
-    url: "https://wallpaperaccess.com/full/1076764.jpg",
-  },
-  {
-    index: 4,
-    url: "https://wallpaperaccess.com/full/1076767.jpg",
-  },
-];
+import { classes } from "../data/shopdata";
 
 function Header(props) {
   const [index, setIndex] = useState(0);
@@ -39,6 +17,7 @@ function Header(props) {
     header.current.style.backgroundImage = "url(" + classes[n].url + ")";
     addNewClass(n);
   }, []);
+
   const toShop = () => {
     navigate("/shop");
   };

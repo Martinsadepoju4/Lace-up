@@ -12,7 +12,6 @@ export function CartProvider({ children }) {
   // retrieve user to localStorage
   const retrieveUSerFromLocalStorage = () => {
     const result = localStorage.getItem("user");
-    console.log(result);
     return result ? JSON.parse(result) : null;
   };
 
@@ -34,7 +33,6 @@ export function CartProvider({ children }) {
   const saveUser = (userLoggedIn) => {
     setUserLoggedIn(userLoggedIn);
     localStorage.setItem("user", JSON.stringify(userLoggedIn));
-    console.log(localStorage.getItem("user"));
   };
 
   const value = {

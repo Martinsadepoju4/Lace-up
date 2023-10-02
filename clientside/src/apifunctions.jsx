@@ -62,7 +62,12 @@ const fetchUserInfo = async (username) => {
     throw error; // Rethrow the error to be caught by the caller
   }
 };
-const registerUser = async (signupinfo, navigate, saveUser) => {
+const registerUser = async (
+  signupinfo,
+  navigate,
+  saveUser,
+  setErrorMessage
+) => {
   console.log(signupinfo);
   try {
     const response = await axios.post(
@@ -70,32 +75,42 @@ const registerUser = async (signupinfo, navigate, saveUser) => {
       signupinfo
     );
     console.log(response);
-    if (response.data) {
+    if (response.status === 200) {
       const route = response.data;
       saveUser(signupinfo.username);
       navigate(route);
-    } else if (response.status === 500) {
-      console.log("user exists");
     }
   } catch (error) {
-    console.log(error);
+    setErrorMessage("Network error: Pls try again");
+    setTimeout(() => {
+      setErrorMessage("");
+    }, 4000);
   }
 };
-const loginUser = async (logininfo, navigate, saveUser) => {
+const loginUser = async (logininfo, navigate, saveUser, setErrorMessage) => {
   try {
     const response = await axios.post(
       process.env.REACT_APP_API_URL + "/login",
-      logininfo
+      { username: "martinsadepoju4@email.com", password: "Martinssegun4$" }
     );
-    if (response) {
+    if (response.status === 200) {
+      console.log(response.status);
       const route = response.data;
       saveUser(logininfo.username);
       navigate(route);
-    } else {
-      console.log("invalid username or password");
     }
   } catch (error) {
-    console.log(error);
+    if (!error.response) {
+      setErrorMessage("Network error: Pls try again");
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 4000);
+    } else if (error.response.status) {
+      setErrorMessage("Incorrect username or password");
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 4000);
+    }
   }
 };
 

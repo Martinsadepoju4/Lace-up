@@ -39,6 +39,24 @@
 .signUpText {
   display: none;
 }
+.errorMessage {
+  font-size: xx-small;
+  color: red;
+  margin-bottom: 10px;
+  margin-top: -30px;
+}
+.validationMessage {
+  font-size: xx-small;
+  color: red;
+  margin-bottom: 10px;
+  margin-top: -10px;
+}
+.lastvalidationMessage {
+  font-size: xx-small;
+  color: red;
+  margin-bottom: 10px;
+  margin-top: -30px;
+}
 .signUpSpan {
   font-style: italic;
   color: blue;
@@ -49,6 +67,7 @@
   padding: 15px 10px;
   border-radius: 20px;
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 .secondFormButton {
   color: black;
@@ -119,6 +138,10 @@
   .form {
     width: 80%;
   }
+  .errorMessage {
+    margin-top: auto;
+    margin-bottom: 10px;
+  }
 }
 @media (max-width: 540px) {
   .secondDiv {
@@ -140,5 +163,11 @@
     display: block;
     margin-top: 0;
     margin-bottom: 40px;
+  }
+  .lastvalidationMessage {
+    font-size: xx-small;
+    color: red;
+    margin-bottom: 10px;
+    margin-top: auto;
   }
 }

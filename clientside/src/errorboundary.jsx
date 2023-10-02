@@ -1,5 +1,4 @@
 import React from "react";
-import errImage from "./images/errorboundary.jpg";
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -25,8 +24,7 @@ class ErrorBoundary extends React.Component {
     if (this.state.hasError) {
       // You can render any custom fallback UI
       return (
-        <div className="loading">
-          <img className="loadingImage" src={errImage} alt="error" />
+        <div className="errorBoundary">
           <h1>Oop! Something went wrong</h1>
         </div>
       );

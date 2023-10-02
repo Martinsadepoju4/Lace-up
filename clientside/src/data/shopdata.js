@@ -1,3 +1,26 @@
+const classes = [
+  {
+    index: 0,
+    url: "https://wallpaperaccess.com/full/1076768.jpg",
+  },
+  {
+    index: 1,
+    url: "https://wallpaperaccess.com/full/1076763.jpg",
+  },
+  {
+    index: 2,
+    url: "https://wallpaperaccess.com/full/1306720.jpg",
+  },
+  {
+    index: 3,
+    url: "https://wallpaperaccess.com/full/1076764.jpg",
+  },
+  {
+    index: 4,
+    url: "https://wallpaperaccess.com/full/1076767.jpg",
+  },
+];
+
 const categories = [
   {
     class: "category",
@@ -276,8 +299,8 @@ const staffs = [
     image:
       "https://pbs.twimg.com/profile_images/1501333741045702670/f4xixThR_400x400.jpg",
     name: "Sewa Griffin",
-    bio: "Her work is loving me, she is very petty and pretty. don't make expensive jokes with her!",
-    skills: ["sex", "food", "food again"],
+    bio: "she is very petty and pretty. don't make expensive jokes with her!",
+    skills: ["SM", "food", "food again"],
   },
   {
     id: 1,
@@ -2591,4 +2614,13 @@ const reviews = [
   },
 ];
 
-export { shopData, reviews, categories, trending, newArrival, staffs, brands };
+export {
+  shopData,
+  reviews,
+  categories,
+  trending,
+  newArrival,
+  staffs,
+  brands,
+  classes,
+};

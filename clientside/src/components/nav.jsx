@@ -178,7 +178,9 @@ function Nav(props) {
           <div>
             <ul className={NavCSS.mobileCls}>
               <li>
-                <PersonIcon />
+                <NavLink to="/login">
+                  <PersonIcon />
+                </NavLink>
               </li>
               <li onClick={showCart}>
                 <ShoppingBagOutlinedIcon />

@@ -68,7 +68,10 @@ button {
   margin: auto;
   border: none;
 }
-
+:global .errorBoundary {
+  margin-top: 40vh;
+  margin: auto;
+}
 .discount {
   color: #fff;
   background-image: url("https://c0.wallpaperflare.com/preview/943/148/889/nike-air-jordan-1-shoes-near-chain-link-fence.jpg");

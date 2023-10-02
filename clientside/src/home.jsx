@@ -1,7 +1,7 @@
 import { React, useRef, useEffect, useState } from "react";
 import Header from "./components/header";
 import Holder from "./components/holder";
-import { categories, newArrival, trending } from "./data/shopdata";
+import { categories, classes, newArrival, trending } from "./data/shopdata";
 import Brandcard from "./components/brandcard";
 import Footer from "./components/footer";
 import homeCSS from "./css/home.module.css";
@@ -16,6 +16,7 @@ function Home() {
   const [trendingData, setTrendingData] = useState(null);
   const [newArrivalData, setNewArrivalData] = useState(null);
   const [brandsData, setBrandsData] = useState(null);
+  const [imgsLoaded, setImgsLoaded] = useState(false);
 
   const { data: trendData, error: trendError } = useQuery({
     queryKey: ["trendquery"],
@@ -47,8 +48,28 @@ function Home() {
       console.log("onERR", error);
     },
   });
+  // useEffect to check if header images are fully loaded
+  useEffect(() => {
+    const loadImage = (image) => {
+      return new Promise((resolve, reject) => {
+        const loadImg = new Image();
+        loadImg.src = image.url;
+        // wait 2 seconds to simulate loading time
+        loadImg.onload = () =>
+          setTimeout(() => {
+            resolve(image.url);
+          }, 1000);
 
-  if (!brandsData || !trendingData || !newArrivalData) {
+        loadImg.onerror = (err) => reject(err);
+      });
+    };
+
+    Promise.all(classes.map((image) => loadImage(image)))
+      .then(() => setImgsLoaded(true))
+      .catch((err) => console.log("Failed to load images", err));
+  }, []);
+
+  if (!brandsData || !trendingData || !newArrivalData || !imgsLoaded) {
     return <Pageloading />;
   }
 
@@ -59,16 +80,6 @@ function Home() {
     navigate("/about");
   };
 
-  // function pushTODb() {
-  //   axios
-  //     .post("http://localhost:5000/api", { category: newArrival })
-  //     .then((response) => {
-  //       console.log(response);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }
   if (brandsData && trendingData && newArrivalData) {
     return (
       <div>

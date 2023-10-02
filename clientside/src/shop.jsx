@@ -154,14 +154,13 @@ function Shop() {
 
   function handleClick(event) {
     const { name, value, checked, dataset } = event.target;
-    if (dataset) {
+
+    if (dataset.name === "color") {
       const currentDivClicked = event.target.parentNode;
       if (!formerClickedDiv) {
-        console.log("there is no existing color clicked");
         currentDivClicked.classList.add(shopCSS["colorBorder"]);
         setFormerClickedDiv(currentDivClicked);
       } else {
-        console.log(" there is existing color clicked");
         formerClickedDiv.classList.remove(shopCSS["colorBorder"]);
         currentDivClicked.classList.add(shopCSS["colorBorder"]);
         setFormerClickedDiv(currentDivClicked);
