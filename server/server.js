@@ -135,7 +135,6 @@ app.get("/trendingdata", function (req, res) {
 // user registration route
 
 app.post("/register", function (req, res) {
-  console.log(req.body);
   const newUser = new User({
     username: req.body.username,
     name: req.body.name,
@@ -145,7 +144,6 @@ app.post("/register", function (req, res) {
       console.log(err);
       res.status(500).send(err);
     } else {
-      console.log("user registered!");
       res.send("/profile");
     }
   });

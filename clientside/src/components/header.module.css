@@ -113,7 +113,7 @@ li {
 }
 @media (max-width: 540px) {
   .head {
-    height: 80vh;
+    height: 90vh;
   }
   .headerBox {
     border: none;
@@ -124,10 +124,5 @@ li {
   }
   .circles {
     margin: 4rem 0 1rem 0;
-  }
-}
-@media (max-width: 375px) {
-  .head {
-    height: 90vh;
   }
 }
